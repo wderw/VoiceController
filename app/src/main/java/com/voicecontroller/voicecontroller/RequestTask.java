@@ -36,6 +36,7 @@ public class RequestTask extends AsyncTask<Void, Integer, String> {
         String stringAddress = sharedPreferences.getString("IP_ADDRESS","");
         if (stringAddress.isEmpty()){
             Log.e("RequestTask","Nie udało się odczytać IP z SharedPreferences");
+            Toast.makeText(context,"Brak zapisanych ustawień", Toast.LENGTH_SHORT).show();
             cancel(true);
         }
         else {
