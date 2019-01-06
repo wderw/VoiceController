@@ -17,12 +17,15 @@ public class MainActivity extends AppCompatActivity {
     private final int RESULT_SPEECH = 1;
     Button button;
     TextView textView;
+    private CommandConverter commandConverter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         button = findViewById(R.id.button);
         textView = findViewById(R.id.textView);
+        commandConverter = new CommandConverter();
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,12 +56,13 @@ public class MainActivity extends AppCompatActivity {
 //                        Toast.makeText(getApplicationContext(),word,Toast.LENGTH_LONG).show();
 //                    }
                     resultText = text.get(0);
-                    textView.setText(resultText);
+                    String command = commandConverter.convert(resultText);
+                    textView.setText(command);
                 }
                 break;
             }
         }
-        RequestTask requestTask = new RequestTask(getApplicationContext(),"ON4");
-        requestTask.execute();
+        //RequestTask requestTask = new RequestTask(getApplicationContext(),"ON4");
+        //requestTask.execute();
     }
 }
