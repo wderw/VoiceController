@@ -71,7 +71,7 @@ public class RequestTask extends AsyncTask<Void, Integer, String> {
             printWriter = new PrintWriter(bw, true);
             printWriter.println(command);
             printWriter.flush();
-            Log.e("RequestTask", "Wysłano rządanie: "+command);
+            Log.i("RequestTask", "Wysłano rządanie: "+command);
             retMsg ="Wysłano rządanie: "+command;
         }
         catch (IOException e){
