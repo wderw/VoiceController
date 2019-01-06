@@ -58,11 +58,16 @@ public class MainActivity extends AppCompatActivity {
                     resultText = text.get(0);
                     String command = commandConverter.convert(resultText);
                     textView.setText(command);
+                    if (command.isEmpty()){
+                        Toast.makeText(getApplicationContext(),"Wrong request",Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        RequestTask requestTask = new RequestTask(getApplicationContext(), command);
+                        requestTask.execute();
+                    }
                 }
                 break;
             }
         }
-        //RequestTask requestTask = new RequestTask(getApplicationContext(),"ON4");
-        //requestTask.execute();
     }
 }
