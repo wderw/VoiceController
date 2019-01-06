@@ -58,5 +58,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             }
         }
+        RequestTask requestTask = new RequestTask(getApplicationContext(),"ON4");
+        requestTask.execute();
     }
 }
