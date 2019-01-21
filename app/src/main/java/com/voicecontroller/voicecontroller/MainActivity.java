@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private final int RESULT_SPEECH = 1;
-    Button button;
+    Button button, settingsButton;
     TextView textView;
     private CommandConverter commandConverter;
 
@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         button = findViewById(R.id.button);
         textView = findViewById(R.id.textView);
+        settingsButton = findViewById(R.id.btSettings);
         commandConverter = new CommandConverter();
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,6 +40,13 @@ public class MainActivity extends AppCompatActivity {
                             "Opps !Your device doesn’t support Speech to Text",Toast.LENGTH_SHORT).show();
                 }
 
+            }
+        });
+        settingsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+                startActivity(intent);
             }
         });
     }

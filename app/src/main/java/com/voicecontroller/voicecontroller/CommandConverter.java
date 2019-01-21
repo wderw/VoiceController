@@ -25,8 +25,11 @@ public class CommandConverter {
         outputMappings = new HashMap<>();
 
         turnOnCommands.add("włącz");
+        turnOnCommands.add("uruchom");
+        turnOnCommands.add("zapal");
 
         turnOffCommands.add("wyłącz");
+        turnOffCommands.add("zgaś");
 
         changeCommands.add("przełącz");
         changeCommands.add("zmień");
